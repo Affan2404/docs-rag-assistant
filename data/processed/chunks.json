@@ -1,0 +1,47 @@
+[
+  {
+    "id": 0,
+    "source_file": "225162-is-there-way-to-add-tickets-automatically-to-the-solutions-or-knowledge-b.txt",
+    "text": "Any email sent to kbase@<yourcompanyname>.freshdesk.com from your agent email address would be created as a draft solution article inside your Freshdesk Account. You can choose to have this email address added as a bcc email if you'd like to have all tickets automatically added to the knowledge base or you can also manually forward the tickets to this email address, which would save them as solution article drafts."
+  },
+  {
+    "id": 1,
+    "source_file": "226362-what-is-multilingual-knowledge-base-which-plan-can-i-see-this-in-.txt",
+    "text": "The multilingual knowledge base is when you can display your solution articles in the languages configured in your helpdesk. Please navigate to\nAdmin > Account > Helpdesk Settings >\nwhere you have an option called\n'Manage Languages'\n. Please click on this to set up other languages apart from the primary language which would be available on the customer portal after configuration."
+  },
+  {
+    "id": 2,
+    "source_file": "226362-what-is-multilingual-knowledge-base-which-plan-can-i-see-this-in-.txt",
+    "text": "Please click on this to set up other languages apart from the primary language which would be available on the customer portal after configuration. Say, for instance, you add French and Spanish to this list and your default language is English, as a customer, they would see the\nlanguage dropdown\nat the right end of the navigation bar. Upon choosing the language in the list, the solution articles would display in the chosen language. This feature is available from the Garden plan."
+  },
+  {
+    "id": 3,
+    "source_file": "226362-what-is-multilingual-knowledge-base-which-plan-can-i-see-this-in-.txt",
+    "text": "This feature is available from the Garden plan. Feel free to reach out to support@freshdesk.com in order to upgrade or know more about the feature."
+  },
+  {
+    "id": 4,
+    "source_file": "226364-can-i-change-the-primary-language-after-enabling-multilingual-support-.txt",
+    "text": "Once you add supported languages, you would not be able to change your primary language. However, we would be able to change the Primary Language for your account from the backend. Kindly write to support@freshdesk.com about the same and one of our agents would get in contact with you to assist in processing the same."
+  },
+  {
+    "id": 5,
+    "source_file": "226370-how-to-add-an-article-in-its-translated-version-.txt",
+    "text": "Please navigate to the\nsolutions\ntab on the global header\n-> click on the category ->\nwhere you could open the\nfolder of articles. When you click on\n\"show languages\",\nyou would see the icons of the languages supported in your helpdesk. Kindly add the article's translation under each icon in the respective languages. This would make them available in the language chosen in the\ndrop-down\non the customer portal."
+  },
+  {
+    "id": 6,
+    "source_file": "226370-how-to-add-an-article-in-its-translated-version-.txt",
+    "text": "This would make them available in the language chosen in the\ndrop-down\non the customer portal. You could make an entire folder of articles in one language by following the same instructions."
+  },
+  {
+    "id": 7,
+    "source_file": "228029-how-to-create-articles-in-multiple-languages-.txt",
+    "text": "You would be having customers all around the world and our helpdesk does support a global reach to customers in their respective languages. The feature that aids this is called\n\"Multilingual Support\"\nwhich is available from our\nGarden\nplan. Say, for example, you would want to support articles in Chinese, French, apart from English which is your default/primary portal language."
+  },
+  {
+    "id": 8,
+    "source_file": "228029-how-to-create-articles-in-multiple-languages-.txt",
+    "text": "Say, for example, you would want to support articles in Chinese, French, apart from English which is your default/primary portal language. Please navigate to\nAdmin -> Account -> Helpdesk Settings\nwhere you would see an option called\n\"Manage Languages\"\nwhich would allow you to add Chinese and French as well. Next, to these languages, you would have an option called\n\"Hidden on portal\"\nwhich when clicked upon would make the language visible on the portal."
+  }
+]
