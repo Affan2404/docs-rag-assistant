@@ -13,16 +13,27 @@ provided context from Freshdesk help articles. Rules:
 - Always mention which source file(s) your answer is based on.
 - Keep answers concise and direct."""
 
+NO_CONTEXT_MESSAGE = (
+    "I don't have information about that in the Freshdesk documentation "
+    "I have access to. Try rephrasing, or ask about knowledge base management, "
+    "multilingual support, or automation rules."
+)
+
 def build_context(chunks):
     parts = []
     for c in chunks:
         parts.append(f"[Source: {c['source_file']}]\n{c['text']}")
     return "\n\n---\n\n".join(parts)
 
+# Skip the Claude call entirely when nothing relevant was found - saves cost
+# and guarantees an honest answer instead of relying on the model to notice
 def answer_question(query, top_k=3):
     chunks = retrieve(query, top_k=top_k)
-    context = build_context(chunks)
 
+    if not chunks:
+        return NO_CONTEXT_MESSAGE, chunks
+
+    context = build_context(chunks)
     user_message = f"Context:\n{context}\n\nQuestion: {query}"
 
     response = client.messages.create(
