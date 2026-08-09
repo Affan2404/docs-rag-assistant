@@ -7,6 +7,16 @@ ARTICLE_URLS = [
     "https://support.freshdesk.com/support/solutions/articles/226370-how-to-add-an-article-in-its-translated-version-",
     "https://support.freshdesk.com/support/solutions/articles/228029-how-to-create-articles-in-multiple-languages-",
     "https://support.freshdesk.com/support/solutions/articles/226364-can-i-change-the-primary-language-after-enabling-multilingual-support-",
+      # Knowledge Base structure/management (new)
+    "https://support.freshdesk.com/support/solutions/articles/213271-manage-your-knowledge-base",
+    "https://support.freshdesk.com/support/solutions/articles/37611-create-and-organize-knowledge-base",
+    "https://support.freshdesk.com/en/support/solutions/articles/50000004736-structuring-your-knowledge-base-with-flexible-hierarchy-up-to-5-folder-levels-",
+
+    # Automation rules (new - genuinely different topic)
+    "https://support.freshdesk.com/support/solutions/articles/207276-overview-of-automation-rules",
+    "https://support.freshdesk.com/support/solutions/articles/37614-setting-up-automation-rules-to-run-on-ticket-creation",
+    "https://support.freshdesk.com/support/solutions/articles/99047-automation-rules-that-run-on-ticket-updates",
+    "https://support.freshdesk.com/support/solutions/articles/37615",
 ]
 OUTPUT_DIR = "data/raw"
 BOILERPLATE_MARKER = "Freshdesk Omni 2023 Knowledge Base"
