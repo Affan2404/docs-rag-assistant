@@ -4,3 +4,7 @@ sentence-transformers
 chromadb
 anthropic
 python-dotenv
+fastapi
+uvicorn
+pytest
+httpx
