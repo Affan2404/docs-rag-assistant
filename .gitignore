@@ -7,3 +7,4 @@ chroma_db/
 data/raw/
 data/processed/
 app.log
+query_cache.json
