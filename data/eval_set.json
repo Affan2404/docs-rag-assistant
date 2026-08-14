@@ -1,0 +1,22 @@
+[
+  {
+    "question": "How do I create an automation rule that runs every hour?",
+    "expected_source": "37615.txt"
+  },
+  {
+    "question": "How do I add an article in its translated version?",
+    "expected_source": "226370-how-to-add-an-article-in-its-translated-version-.txt"
+  },
+  {
+    "question": "Can I change the primary language after enabling multilingual support?",
+    "expected_source": "226364-can-i-change-the-primary-language-after-enabling-multilingual-support-.txt"
+  },
+  {
+    "question": "What happens to automation rules when a ticket is updated?",
+    "expected_source": "99047-automation-rules-that-run-on-ticket-updates.txt"
+  },
+  {
+    "question": "How do I organize articles in my knowledge base?",
+    "expected_source": "37611-create-and-organize-knowledge-base.txt"
+  }
+]
