@@ -1,0 +1,10 @@
+The multilingual knowledge base is when you can display your solution articles in the languages configured in your helpdesk. Please navigate to
+Admin > Account > Helpdesk Settings >
+where you have an option called
+'Manage Languages'
+.
+Please click on this to set up other languages apart from the primary language which would be available on the customer portal after configuration.
+Say, for instance, you add French and Spanish to this list and your default language is English, as a customer, they would see the
+language dropdown
+at the right end of the navigation bar. Upon choosing the language in the list, the solution articles would display in the chosen language.
+This feature is available from the Garden plan. Feel free to reach out to support@freshdesk.com in order to upgrade or know more about the feature.

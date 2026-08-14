@@ -1,0 +1,287 @@
+Automation rules that run on ticket creation automate actions on newly created tickets—for example, routing a ticket to the billing team when the subject or description contains the word "Billing." This article explains how ticket creation automations work, how to create them, and how to test and troubleshoot them. For examples and use cases, see
+Automation rules examples: Ticket creation
+.
+TABLE OF CONTENTS
+Prerequisites
+Overview of ticket creation automations
+How ticket creation rules execute
+Important considerations
+Create a ticket creation automation rule
+Use the pre-configured sample rule
+Skip new ticket email notifications
+Clone a ticket creation rule
+Automatically update the contact on a ticket
+Test ticket creation automation rules
+Troubleshooting
+Prerequisites
+Ensure you meet the following requirements before you create ticket creation automations:
+You have administrator access to
+Admin > Workflows > Automations
+.
+You understand your routing, notification, and field-update requirements for new tickets.
+Required groups, agents, tags, custom fields, and email addresses exist before you reference them in rule conditions or actions.
+Overview of ticket creation automations
+Automation rules that run on ticket creation evaluate every newly created ticket against the conditions you define and perform the actions you configure.
+You can automate actions such as:
+Assigning tickets to groups and agents
+Setting ticket properties such as status, priority, and type
+Sending email notifications to agents and requesters
+Marking tickets as spam, closing them, or deleting them
+Triggering webhooks
+You can base conditions on:
+Ticket fields and ticket properties
+Contact or requester fields
+Company properties of the requester
+You can also combine ticket creation automations with webhooks and APIs to update contact information when ticket fields are populated during ticket creation.
+How ticket creation rules execute
+Ticket creation rules run in one of two modes:
+Execution mode
+Behavior
+Execute first matching rule (default)
+Freshdesk runs only the first enabled rule whose conditions match the new ticket.
+Execute all matching rules
+Freshdesk runs every enabled rule whose conditions match the new ticket.
+The order of rules on the
+Ticket Creation
+tab matters. When you use
+Execute first matching rule
+, place specific rules at the top and generic rules lower in the list.
+To change the execution mode:
+Go to
+Admin > Workflows > Automations
+.
+Open the
+Ticket Creation
+tab.
+Click the gear icon above the rules list.
+Select
+Execute all matching rules
+or
+Execute first matching rule
+.
+Click
+Save
+.
+Ticket creation automations run only when a ticket is created. Changing the execution mode does not retroactively apply rules to existing tickets.
+Important considerations
+Ticket creation automations run immediately when a ticket is created. You cannot delay ticket creation or delay execution of these rules.
+To delay an auto-reply, create a custom dropdown field and trigger the reply from a ticket update automation after an agent updates that field.
+Freshdesk sets a contact's language from the language of the first ticket they create. For example, if a contact's first email is in Spanish, their language is set to Spanish.
+Ticket creation automations run only at ticket generation. You cannot run them manually against existing tickets.
+For API-created tickets, use the
+/api/v2/tickets
+endpoint. Ticket creation rules do not run for outbound email tickets created through the outbound email API endpoint.
+Ticket creation rules run once per new ticket. Replies in the same email thread do not trigger creation rules again.
+You can view impacted ticket counts for each rule for the past 7 days, but Freshdesk does not show the corresponding ticket IDs in that view. Add a tag in the rule action if you need to filter impacted tickets later.
+Freshdesk does not support triggering one automation from another. To run logic across creation and later updates, use a ticket creation rule with a webhook and a separate ticket update rule triggered by the resulting ticket state or field value.
+If tickets are incorrectly labeled as auto-responses, review your auto-response detection settings so legitimate customer emails are not filtered before ticket creation rules run.
+Create a ticket creation automation rule
+To create an automation rule that runs on ticket creation:
+Go to
+Admin > Workflows > Automations
+.
+Open the
+Ticket Creation
+tab.
+Click
+New rule
+.
+Enter a unique name and, if required, edit the auto-generated description.
+Under
+On tickets with these properties
+, add conditions:
+Choose the field type: ticket, contact, or company.
+Select the field and operator.
+Choose whether tickets must match
+All
+conditions,
+Any
+condition, or an advanced AND/OR combination.
+Under
+Perform these actions
+, add one or more actions.
+Click
+Preview and Save
+.
+Click
+Save and enable
+.
+Tip:
+Use
+Contains
+or
+Has any of these words
+for subject and description conditions instead of
+Is
+when you expect formatting differences or partial matches.
+Use the pre-configured sample rule
+Freshdesk includes a sample rule that routes refund and return tickets to the billing team. You can edit this rule to match your process.
+For example, to assign tickets of type Return, Refund, or Replacement to the Returns & Refunds group:
+Open the sample rule on the
+Ticket Creation
+tab.
+Set conditions for the ticket types you want to match.
+Add the action
+Assign to group
+and select
+Returns & Refunds
+.
+Add other actions as required.
+Click
+Save and enable
+.
+For more examples, see
+Automation rules examples: Ticket creation
+.
+Skip new ticket email notifications
+Use the
+Skip new ticket email notification
+action when matching tickets must not send the default new-ticket email to agents.
+For example, when you automatically close or mark spam tickets from no-reply addresses, add
+Skip new ticket email notification
+so agents do not receive new-ticket alerts for those tickets.
+Clone a ticket creation rule
+To reuse an existing rule:
+Go to
+Admin > Workflows > Automations > Ticket Creation
+.
+Hover over the rule, click the three-dot menu, and select
+Clone
+.
+Update conditions and actions.
+Click
+Save and enable
+.
+Each rule must have a unique title. Duplicate titles can cause configuration errors such as "check configuration rules."
+Automatically update the contact on a ticket
+Use a ticket creation automation to update the contact associated with a ticket based on ticket form or custom field values.
+To configure the automation:
+Go to
+Admin > Workflows > Automations > Ticket Creation
+.
+Click
+New rule
+.
+Add conditions based on the ticket form or custom field values.
+Under
+Perform these actions
+, select
+Update contact
+and specify the contact or email address.
+Click
+Save and enable
+.
+Test ticket creation automation rules
+After you create a rule, verify it with a new test ticket.
+Create a test ticket that matches the rule conditions.
+Open the test ticket and click
+Show Activities
+.
+Confirm the automation appears in the activity log.
+If the automation does not appear:
+Confirm the ticket matches all configured conditions.
+Confirm the rule is enabled.
+Confirm a higher rule did not match first when you use
+Execute first matching rule
+.
+Note:
+You cannot test ticket creation automations on existing tickets. Create a new ticket that satisfies the rule conditions.
+Troubleshooting
+Why is my ticket creation rule not working even though conditions look correct?
+Check the following:
+Confirm rule order on
+Admin > Workflows > Automations > Ticket Creation
+. With
+Execute first matching rule
+, only the first matching rule runs.
+Open the ticket and click
+Show Activities
+to see which rule executed.
+Place specific rules above generic rules.
+Confirm the rule is enabled and the ticket matches every configured condition.
+Conflicting or overlapping rules often cause unexpected routing. Review overlapping conditions and actions, temporarily disable one rule to isolate the issue, and use
+Match all of the below
+when every condition must be true—for example, when routing by both product and group.
+Why did my rule stop working after it previously worked?
+The
+Is
+operator requires an exact match. Hidden HTML or formatting differences often break exact-match conditions. Use
+Contains
+or
+Has any of these words
+instead. Also verify match case settings, rule order, invalid custom fields in the rule, and whether
+Execute all matching rules
+is required.
+Why did my rule match when I did not expect it to?
+Keyword conditions can match partial words in long descriptions. Narrow the condition or refine the keyword list.
+Why does my description condition fail when the phrase contains special characters?
+Automation conditions support alphabets, numbers, and selected characters. Angle brackets and other unsupported special characters can prevent matches. Replace unsupported characters with supported alternatives such as underscores, then test again.
+Why is my rule not matching non-English text?
+Verify
+Match case
+settings and test with sample tickets. Review
+Show Activities
+to confirm how Freshdesk parsed the ticket content.
+Why is my email action rule not running?
+Confirm whether
+Execute first matching rule
+is enabled. If so, only the first matching rule runs. Switch to
+Execute all matching rules
+when multiple email rules must run on the same ticket.
+Why can't I add conditions or edit a rule?
+Try these steps:
+Hard refresh the page (
+Cmd+Shift+R
+on Mac or
+Ctrl+F5
+on Windows).
+Open an incognito or private window.
+Clear browser cache and cookies.
+Check for empty dependent field values in the rule.
+Remove blank actions, save, and edit again.
+Why does a placeholder not populate a custom field at ticket creation?
+Some placeholders are unavailable at the exact moment of ticket creation because contact or ticket data is not yet available. Use a webhook in the ticket creation rule or update the field through a follow-up ticket update automation after the ticket is created. For more information, see
+Using webhooks in automation rules
+.
+How do I configure webhooks on ticket creation?
+Go to
+Admin > Workflows > Automations > Ticket Creation
+.
+Create or edit a rule and add
+Trigger webhook
+under
+Perform these actions
+.
+Select the request type and callback URL.
+Add authentication and payload content as required.
+Confirm the execution mode and test with a new ticket.
+Why is my webhook not creating or firing on ticket creation?
+Confirm the rule is on the
+Ticket Creation
+tab, not
+Ticket Updates
+.
+Confirm the webhook URL, authentication, and payload are valid.
+Create a new test ticket and review
+Show Activities
+.
+Confirm no higher-priority rule matched first and stopped execution.
+Why was a new ticket assigned even though I have no automation rule?
+Freshdesk can assign tickets based on mailbox or email configuration before automations run. Go to
+Admin > Channels > Email
+, open the support address, and verify the default group assignment.
+How do I prevent surveys or auto-replies from going to specific addresses?
+Add an exclusion condition such as
+Requester email is not
+address@domain.com
+to the ticket creation rule that sends the survey or auto-reply.
+Do ticket creation automations run for outbound API email tickets?
+No. Create the ticket with
+/api/v2/tickets
+instead of the outbound email API endpoint. Use a ticket creation rule to send the outbound email if required.
+How do I create an in-app CTA that creates a ticket and automates replies?
+Create the ticket through
+/api/v2/tickets
+with the required fields and attachments.
+Create a ticket creation rule that matches the API ticket properties.
+Add actions to send email, set priority, assign the ticket, or update other properties.

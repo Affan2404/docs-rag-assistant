@@ -4,7 +4,6 @@ __pycache__/
 .env
 chroma_db/
 *.log
-data/raw/
 data/processed/
 app.log
 query_cache.json

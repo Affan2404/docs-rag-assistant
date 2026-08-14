@@ -1,0 +1,203 @@
+This article provides details on how to create and manage categories, folders, and articles. For a general overview of the Knowledge Base, refer to
+About Knowledge Base
+.
+A well-structured Knowledge Base should contain comprehensive information covering a wide range of topics related to your products and services. This enhances self-service capabilities and empowers customers with the information they need at all times. You can create as many categories, folders, and articles as needed to build your Knowledge Base.
+User Requirements
+: The solution page can be accessed by Admins and users.
+This article contains:
+Create a category, folder, article
+Create a category
+Create folders
+Create an article
+Create multi-level hierarchies
+Create a category, folder, article
+A category is the highest level of your knowledge base structure. It represents a broader section or group containing folders and articles relevant to a specific topic in your help center.
+For instance, for an e-commerce business, your knowledge base can include categories like Get Started, Shopping Categories, Accounts & Setup, Payments, and Help & Support.
+The content for your knowledge base is complete when you create the relevant categories, folders, and articles.
+Create a category
+Go to
+Solutions > New Article > New Category
+.
+Enter an appropriate name (mandatory field) and description for the category.
+Set the visibility of the category by choosing the relevant portal. You can create multiple portals and decide where you want to add the categories. You can also choose more than one portal. This will make the categories visible on all portals.
+Click
+Save
+.
+Proceed with folder creation.
+Create folders
+On the Solutions home page, click
+New Article > New Folder
+.
+Alternatively, go to any existing category and then click
+New Article > New folder
+. The folder will be automatically placed within the selected category.
+Enter the
+Name
+(mandatory field) and
+Description
+for the folder.
+Select the hierarchy (
+mandatory
+). You can add a folder within a category or create multiple hierarchies by adding folders within folders.
+While creating sub-folders, ensure to select the right parent category or folder.
+Choose the folder visibility on the customer portal. The options are:
+All users
+: Provides access to customers, agents, and Freshchat bots to view and access the folder contents.
+All agents
+: Provides access only to your agents. The folder will be hidden from the customers on the portal.
+Logged in users
+: Allows access to folders only after logging into the customer portal
+Bot
+: Allows folder access to only Freshchat bots connected to your Freshdesk account.
+Companies
+: Allows folder access to the selected companies in your account. If you choose this option, select the list of companies for which you want to allow folder view access.
+Contact segments
+: Provide folder access to a
+contact segment
+. For example, you can group your contacts based on their geographical location or subscription plans and provide folder access to only those segments.
+Company Segments
+: Provide folder access to company segments. Similar to contact segments, you can create company segments and provider folder access.
+Choose how you want to order and organize the folders. You can order them manually or automatically by alphabetical order, creation date, or modified date.
+Click
+Save
+.
+Proceed with article creation.
+Create an article
+On the solutions page click
+New Article
+. You will see the article editor.
+Add the article title and add the content.
+You can write the article and format the content in the rich text editor or using the HTML editor.
+Note
+: The following tags will not be supported in the HTML editor: <script>, <style>; form-related tags like <form>, <input>, <select> and event attributes like
+onclick
+,
+onmouseover
+.
+Add the article content and click
+Publish
+.
+After you successfully create all the required categories, folders, and articles, you can view the Knowledge Base in your customer portal. Here's a sample view of the Knowledge Base on the customer portal.
+Tips to enhance your articles
+Use different "Heading" levels and break your article into sections to give a clean structure.
+Format your content using the various text, paragraph, and
+font formatting options
+.
+Present the content in different content types, such as tables, bullets and numbered lists, videos, images.
+Add keywords under tags for the article to show up when a customer searches for a particular keyword.
+Optimize your knowledge base for search engines and make sure that they rank better on Google.
+To learn more about how to manage your Knowledge Base and perform bulk actions, see
+Manage your Knowledge Base
+.
+Create multi-level hierarchies
+As your knowledge base grows, organizing articles within a limited structure can be unmanageable and clunky. Using multi-level hierarchies or nested folder structures, you can represent your content in a six-level hierarchy, starting from categories at the first level, and folders and sub-folders up to five levels.
+Another benefit of using flexible or multi-level hierarchies is when you want to provide support across multiple brands or
+products
+.
+Note
+: Multi-level or flexible hierarchies is available only on the
+Enterprise
+plan. If you are on other plans, you can organize your knowledge base up to 3 levels.
+Category > Folder > Article
+.
+Take a look at a few examples of how you can structure your Knowledge Base with the multi-level hierarchies:
+Payments - Category
+Online payments - Folder
+Card payment - Sub-folder
+Credit - Sub-folder
+Debit - Sub-folder
+Invoicing - Folder
+Get started - Sub-folder
+Working with invoices - Sub-folder
+Automated invoices - Sub-folder
+Subscriptions - Folder
+Business operations
+Products (Category)
+- Computers/Mobiles (Level 1 folder)
+Laptops (Level 2 Sub-folder)
+Desktops (level 2 Sub-folder)
+Mobile (level 2sub-folder
+- Android (level 3 folder)
+- IOS (level 3 folder)
+Consumer Electronics
+Cameras
+Printers
+Audio/Video
+Region - Category
+NA - Folder
+USA - Sub-folder
+CA - Sub-folder
+MX - Sub-folder
+To create sub-folders
+:
+On the Solutions home page, click
+New Article > New Folder
+. By default, the first category will always be selected as the top hierarchy. You can change this in step 3.
+However, alternatively, you can go to a specific folder within a category or another folder and then click
+New Article > New folder
+to automatically set the hierarchy. If you create folders this way, you can skip step 3.
+Enter the Name (mandatory field) and description.
+Select the hierarchy. Since you want to create multi-level hierarchies, ensure that you choose the right folder or sub-folder. You can create a maximum of 5 sub-folders.
+In the above example, to create "Android" as a level 3 folder, select the hierarchy as
+Products > Mobile
+.
+Follow steps 4 to 6 from the section
+Create folder
+.
+A few callouts
+:
+A category or folder will be visible on the customer portal only after you publish at least one article within a category/folder
+The basic structure of a Knowledge Base is
+Category > Folder > Article
+.
+The look and feel of the knowledge base on the customer portal depends on how you customize your portal. You can choose themes, color, add branding, and more. For details, see
+Customizing your customer portal
+.
+NOTE: For Freshdesk accounts that were created before May 2022.
+If you are using a customized Portal theme, please follow the below steps to set up Flexible Hierarchy on your account.
+Go to Admin > Portals
+Hover over the Portal of your choice and click on Customize.
+Click on
+Layout & Pages
+and select Portal pages
+Select Solutions home from the left pane.
+Refer to the sample code below, make the required changes and paste it to the code editor.
+{% for folder in category.folders %}
+ <section class="cs-g article-list">
+ <div class="list-lead">
+ {{ folder | link_to_folder_with_count }}
+ </div>
+ {{ folder | sub_folder_article_list:5 }}
+ </section>
+{% else %}
+ {{ portal | filler_for_solutions }}
+{% endfor %}
+HTML
+Click on Folder view from the left pane. Refer to the sample code below, make the required changes and paste the same to the code editor.
+{% if folder.articles_count > 0 or folder.subfolders_count > 0%}
+ {% paginate folder.entity_collection by 10 %} 
+ <section class="article-list c-list">
+ {% for item in paginate.collection %}
+ <div class="c-row c-article-row">
+ <i class="icon-{{item.source_type}}-table-row"></i>
+ <div class="ellipsis article-title"> 
+ <a href="{{ item.url }}" class="c-link">{{ item.name | h }}</a>
+ </div>
+ {% if item.source_type == 'article' %}
+ <div class="description-text">
+ {{ item.body_plain | h | truncate:160 }}
+ </div>
+ {% else %}
+ <div class="description-text">
+ {{ item.description | h | truncate:160 }}
+ </div>
+ {% endif %}
+ <div class="help-text">{{ item.modified_on | short_day_with_time }}</div>
+ </div>
+ {% endfor %}
+ </section>
+ {{ paginate | default_pagination }}
+ {% endpaginate %}
+ {% else %}
+ {{ folder| h | filler_for_folders }}
+ {% endif %}

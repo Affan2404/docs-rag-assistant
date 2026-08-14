@@ -1,0 +1,13 @@
+Please navigate to the
+solutions
+tab on the global header
+-> click on the category ->
+where you could open the
+folder of articles.
+When you click on
+"show languages",
+you would see the icons of the languages supported in your helpdesk.
+Kindly add the article's translation under each icon in the respective languages. This would make them available in the language chosen in the
+drop-down
+on the customer portal.
+You could make an entire folder of articles in one language by following the same instructions.

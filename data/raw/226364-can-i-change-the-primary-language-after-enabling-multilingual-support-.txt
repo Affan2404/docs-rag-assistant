@@ -1,0 +1,2 @@
+Once you add supported languages, you would not be able to change your primary language. However, we would be able to change the Primary Language for your account from the backend.
+Kindly write to support@freshdesk.com about the same and one of our agents would get in contact with you to assist in processing the same.

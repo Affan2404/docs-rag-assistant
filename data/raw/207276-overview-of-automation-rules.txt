@@ -1,0 +1,330 @@
+Automation is a cornerstone ability of Freshdesk. You can create powerful automation rules that run when specific conditions are met and perform repetitive tasks, saving you time and effort.
+Types of automation rules
+There are 3 types of automation rules available in Freshdesk.
+Rule type
+Examples
+Ticket Creation:
+When a ticket is created, these rules check it for specified conditions and on a match, execute configured actions.
+Set ticket priority to
+Urgent
+based on the contact/company
+Assign tickets to different agents based on the contents of the subject or description. For example, assign all tickets with the subject refund to the
+Refund
+team
+Delete spam, auto-replies, and out-of-office emails before they appear on your ticket list
+Assign tickets to different groups based on the ticket requester's timezone
+Send an email notification to customers raising a specific kind of request
+Ticket Updates:
+These rules listen for particular events. When those events occur, the rule checks for specified conditions and on a match, execute configured actions.
+Reopen a ticket when there's an update on it
+Notify the manager when an agent receives a negative satisfaction rating
+Trigger webhooks (to send a text message to the agent when the requester replies and so on)
+Tag a ticket with
+Bug
+when the group is updated from support to development
+Hourly Triggers:
+These rules scan all tickets once every hour and check if a ticket has been under a condition for a specific period. Since these rules run once per hour, the time limit specified should always be greater than or equal to one hour.
+Close resolved tickets after 48 hours if the customer hasn't responded
+Notify the manager when there are too many agent/customer interactions in a ticket that has been open for a long time
+Remind the agent to respond to a ticket that received a requester response from a specific some time ago
+Navigating the automation rules UI
+To manage your automation rules, go to
+Admin > Workflows > Automation Rules
+. The page has the following components:
+The rule type tabs: All 3 types of automation rules are contained in their own tab. Select one to see the rules of that type.
+The
+New rule
+button: Click this to create a new rule. See below.
+The
+Templates
+button: Click this to view common use cases for automation rules and create your rule from a guided template. See below.
+The
+Search
+icon: When you have a long list of rules (across all three types), use this icon to quickly find one.
+Rule toggle: For each rule, toggle right to enable or left to disable.
+The overflow menu: The triple dot menu contains options to edit a rule, clone it, or delete it.
+The
+Reorder
+button: This button becomes visible when you have more than one rule enabled. Click it to change the order of your rules. Enabled rules are executed from top to bottom.
+Execution rule: Determines how rules are executed. This differs between the 3 types of rules.
+Ticket Creation:
+Choose between "first matching rule" or "all matching rules".
+Ticket Updates:
+All matching rules are executed from top to bottom.
+Hourly Triggers:
+All matching rules are executed from top to bottom. These rules only match against tickets updated in the last 30 days.
+Rule statistics: Under each rule, you can see when the rule was last modified, who updated it, and how many tickets were affected by this rule in the previous 7 days.
+Structure of an automation rule
+When you create a new rule or edit/clone an existing one, you're taken to the rule editing page. Based on the type of automation rule you create, you can configure the following sections:
+Section
+Ticket Creation
+Hourly Triggers
+Ticket Updates
+The
+Rule Name and Description
+fields—Write a name and explanation for each rule. The name appears in your list of rules and search results.
+(supported)
+(supported)
+(supported)
+Events 1 (
+When an action performed by
+)—trigger on a specific entity's behavior
+(not supported)
+(not supported)
+(supported)
+Events 2 (
+Involves any of these events
+)—trigger when a particular action occurs.
+(not supported)
+(not supported)
+(supported)
+Conditions (
+On tickets with these properties
+)—filter when the rule triggers based on values in the ticket or the associated contact or company.
+(supported)
+⚠️
+(Ticket conditions only)
+(supported)
+Actions (
+Perform these actions
+)—the automations to perform when the rule is triggered.
+(supported)
+(supported)
+(supported)
+Click the following toggles to learn about events, conditions, and actions in detail.
+Events
+Events determine when the rule is triggered. You must specify at least one event. Click
+Add new event
+to specify more. The rule is triggered if any one event is met.
+Events are only configurable for
+Ticket Update
+automation rules.
+The available events may vary based on your plan and whether you've enabled certain features.
+Event
+Choices
+When an action performed by...
+Agent - select specific agents added to your Helpdesk
+Requester - the ticket creator
+Agent or Requester - the assigned agent or the ticket creator
+Collaborator - any Collaborator agents.
+Learn more
+.
+System - Freshdesk itself.
+Involves any of these events (human events)
+These events are visible when you select a non-System option in the first block:
+Ticket is updated (any update), deleted, or marked as spam
+A default or custom property of the dropdown type is changed from or to any or specific values
+Agent or Group is updated (any or specific)
+Note is added (private, public, or either)
+Reply is sent
+Due date is changed
+Time entry is added or updated
+Customer feedback is received (any or specific)
+Thread is created or updated (of any or specific type)
+For many of these, you can specify exact values to target hyperspecific events, e.g.
+Status is changed
+from
+Pending
+to
+Resolved
+.
+Involves any of these events (system events)
+These events are visible when you select System in the first block:
+Mail sent to address failed (requester, or CC or forward address)
+Forward thread failed
+Ticket is marked overdue (for first response, next response, or resolution)
+Conditions
+All three types of rules have a block called
+On tickets with these properties
+. This block filters when the rule is run based on a value in the ticket or its associated contact or company.
+Note:
+There is no limit on the number of conditions you can define in an automation rule, with no restrictions on conditions across plans.
+The available conditions may vary based on your plan and whether you've enabled certain features.
+Condition
+Ticket Creation
+Hourly Triggers
+Ticket Updates
+In Tickets:
+Default properties of the dropdown type (Status, Type, Priority, Source, Product)
+Custom ticket properties
+The assigned agent or group
+(supported)
+(supported)
+(supported)
+In Tickets:
+The email of the requester, or the To or CC fields
+The ticket's subject, description, or both
+Tags
+Attachments on the ticket
+The form that the ticket was raised from
+(supported)
+(not supported)
+(supported)
+In Tickets:
+When the ticket was created in relation to business hours
+(supported)
+(not supported)
+(not supported)
+In Tickets:
+Number of hours since the ticket:
+was created or reopened
+has been in a particular Status (Pending, Resolved, Closed)
+has been in a particular SLA status (first response due, overdue)
+was first assigned or reassigned
+Number of hours since the requester or agent responded
+(not supported)
+(supported)
+(not supported)
+In Tickets:
+Number of requester or agent interactions
+(not supported)
+(supported)
+(supported)
+In Tickets:
+Content of the latest interaction
+To or CC emails in the latest reply
+When the ticket was last updated in relation to business hours
+Whether the ticket is merged or not
+(not supported)
+(not supported)
+(supported)
+In Contacts:
+The requester's email, name, title, timezone or language
+The segment of the requester
+(supported)
+(not supported)
+(supported)
+In Companies:
+The company's name, domain
+The company's health score, tier, industry, or renewal date
+The segment of the company
+(supported)
+(not supported)
+(supported)
+In Threads:
+The thread's Type (Discussion, Forward, Private)
+Last thread message content
+Total number of threads on a ticket
+Total number of messages in the latest updated thread
+When the latest thread was updated
+(not supported)
+(not supported)
+(supported)
+Each of these has specific contextual filters to target hyper-specific cases. For example:
+Is / Is not / Is any of / Is none of
+Contains / does not contain / Has any or none of these words
+Starts with / ends with
+Greater than / lesser than
+You can chain conditions to create complex use cases.
+Click
+Add new condition
+to specify additional ticket properties. You can specify whether the rule should be triggered if ANY of the conditions are met, or if ALL must be met.
+Click
+Add new filter
+to add a second condition block. Use the AND/OR operators to determine whether the rule should be triggered by satisfying both or only one of the conditions.
+For example, the following setup will be triggered in 3 cases:
+If the ticket was created by someone at the "Acme Inc" company AND the ticket subject contains any of these words - "urgent", "escalation", "problem", or "serious"
+OR if the Source of the ticket is "Phone" or "Walk-in" (for any company)
+OR if the Priority of the ticket is "Urgent" (for any company)
+Chaining conditions is especially important with Hourly Trigger rules. If you use an "Hours since" condition, a warning will help you understand how the rule is triggered. Using a "greater than" or "less than" modifier means that the rule will be executed multiple times. Chaining rules with the "AND" property can help you create "greater/less than" rules that nonetheless only match once. For example, the following combination of conditions and action ensures that a ticket only matches once.
+Actions
+Below the conditions block is the
+Perform these actions
+block. When the rule is triggered, the actions specified here are executed in order. You can define multiple actions by clicking
+Add new action
+.
+The available actions may vary based on your plan and whether you've enabled certain features.
+Action
+Ticket Creation
+Hourly Triggers
+Ticket Updates
+Set <field> as—choose a default or custom ticket property and define what its value should be.
+(supported)
+(supported)
+(supported)
+Add note—write a private or public note to add to the ticket and define persons to notify.
+(supported)
+(not supported)
+(supported)
+Add tag.
+Learn more
+.
+(supported)
+(supported)
+(supported)
+Add a CC
+(supported)
+(not supported)
+(not supported)
+Create a new ticket—specify a new ticket's subject and description, and choose whether to inherit ticket properties
+(not supported)
+(not supported)
+(supported)
+Add watcher
+(supported)
+(supported)
+(supported)
+Assign to agent or group
+(supported)
+(supported)
+(supported)
+Assign product
+(supported)
+(supported)
+(supported)
+Send email to group, agent, or requester—draft an email with a subject and description.
+(supported)
+(supported)
+(supported)
+Delete the ticket or mark it as spam
+(supported)
+(supported)
+(supported)
+Skip new ticket email notifications
+(supported)
+(not supported)
+(not supported)
+Create a thread.
+Learn more
+.
+(supported)
+(not supported)
+(supported)
+Add a new thread message
+(not supported)
+(not supported)
+(supported)
+Update custom objects.
+Learn more
+.
+(not supported)
+(not supported)
+(supported)
+Trigger webhook.
+Learn more
+.
+(supported)
+(not supported)
+(supported)
+If you choose to update a field, that field's type is automatically validated. For dropdown fields, you can only select from valid options and for numerical and date fields, you can only provide valid numbers and dates. For text-based actions such as emails and notes, you will be able to use dynamic placeholders to insert ticket properties.
+When the Action is Send an email to the requester
+,
+You can send the email as a new email or as part of the same thread used by the requester.
+You can also enable the "Add as private note in the ticket" checkbox to add the email as a private note. This ensures that you can see the communication sent to the customer through automation when you open a ticket. If the email includes a CSAT survey, agents can access it directly from the private note and fill it out if needed.
+If you want others (customers, agents, etc.) in the email (CCed or BCCed) to receive it, the email will be sent to all email addresses included in the To, CC, or BCC fields of the most recent public note on the ticket. Enable Send to all contacts in the ‘to’ and ‘cc’ of the ticket.
+Once you are done adding events, conditions, and actions, click Preview. A summary will be auto-generated. Review it and click Save and enable.
+Automation Rule Templates
+When you click the Templates button, you're taken to the templates gallery. The gallery contains several common use cases for automation rules across different categories. When you click
+Preview
+on a template, you see a brief description and breakdown.
+When you click
+Use Template
+, you're taken to the rule editing page, with the event, condition, and action set up for you. Help text guides you on modifying the choices and inputs to configure the rule.
+Limitations, workarounds, and troubleshooting
+Keep the following in mind when working with automation rules:
+Automation rules are executed in order from top to bottom. Arrange your rules based on your workflow.
+You cannot send attachments via automation rules, but you can send URLs.
+You cannot export your automation rules as a list. However, you can get them as part of an account export.
+For additional support, contact
+support@freshdesk.com
+.

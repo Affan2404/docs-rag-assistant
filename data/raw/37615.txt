@@ -1,0 +1,123 @@
+Freshdesk allows you to create ticket automation rules based on time-based events that run every hour. The rules run on all tickets every hour and execute when conditions match. For example, you can set up an automation rule to send tickets to agents who have been unattended for more than 48 hours. You can also notify the supervisor and set the ticket priority to high.
+This article details the overview of how automation rules on Hourly Triggers (FKA Time Triggers) work and the steps to configure them.
+TABLE OF CONTENTS
+List of conditions and actions
+Using pre-configured automation rules on hourly triggers
+Rule 1: Automatically close resolved tickets after 48 hours
+Rule 2: When a ticket has been overdue for a long time, assign it to the Escalations team
+Creating automation rules on Hourly Triggers
+Viewing automation rule statistics
+Cloning rules
+Reordering Rules
+Tips and Best Practices
+Tip
+: Check out this
+article
+to learn more examples and usecases for creating automation rules on hourly triggers.
+List of conditions and actions
+Automation rules on hourly triggers execute an action whenever a condition occurs on Tickets. They help you streamline workflows, enabling quick responses to pending items.
+The conditions you can set can be based on Ticket properties like ticket status, priority, or type. Another robust set of conditions you can use is the time-based conditions that trigger an action after a certain amount of time after an event occurs on a ticket. For example, hours since an agent responded on a ticket or hours since the first response is due on a ticket.
+You can view the complete list of conditions while
+setting up the rule
+:
+Similarly, you can trigger different types of actions based on the conditions you configure. For example, you can automatically assign the ticket to specific agents/groups or send emails to them after a certain time since the customer responded to a ticket.
+Conditions and actions not available for Hourly Triggers
+Unlike
+Ticket Creation
+and
+Update
+rules, automation rules on hourly triggers cannot be executed for
+Contacts
+or
+Company
+properties. It can only run on Ticket properties. Also, the following conditions and actions cannot be used:
+Conditions not available
+:
+Conditions on email properties, such as Email subject or Description, Requester Email, CC, etc.
+Other conditions like Tags, Ticket forms, and Attachments
+Actions not available
+:
+Actions such as adding notes, CC, or Triggering Webhook
+Actions such as Skip new notifications
+Things to know:
+The rules run every hour, and only tickets updated within the last 30 days will be processed. However, it excludes tickets that are resolved/closed and idle for more than 30 days.
+The rules do not trigger when the specified time for a ticket elapses. For instance, if a rule is set to run five hours after a ticket is marked as “pending”, the rule may execute only after five hours and 58 minutes from the moment the ticket was marked as pending. This is because the automation rule runs on an hourly schedule.
+The rules execute on Calendar hours, not Business hours.
+The rules are processed sequentially, so the order of the rules is critical.
+You can create
+automation rules with custom objects
+. Once you create custom objects and associate them with tickets, you can view them in the conditions or actions drop-down options.
+Using pre-configured automation rules on hourly triggers
+To help you get started, Freshdesk provides a set of pre-configured automation rules that automatically execute based on the specified conditions. By default, the rules are enabled. You can turn off or modify them based on your requirements. To turn off the rules, click the toggle button next to the rule name.
+Rule 1: Automatically close resolved tickets after 48 hours
+This automation rule optimizes your ticket resolution process. Once a ticket is marked as resolved by your team, tickets will be automatically closed after 48 hours if no further activity or response is received from the customer.
+Click on the rule name to view or edit the rule. You can modify the default rule by adding more conditions and actions.
+Rule 2: When a ticket has been overdue for a long time, assign it to the Escalations team
+This rule automatically handles tickets that have exceeded their due date by two hours. If a ticket remains in open status and exceeds the due date by more than two hours, the ticket is automatically assigned to the Escalations team for immediate attention. This ensures timely resolution and prevents SLA breaches, leading to happy customers.
+Creating automation rules on Hourly Triggers
+Log in to Freshdesk as an admin.
+Go to
+Admin > Workflows > Automations
+.
+Switch to the
+Hourly Triggers
+tab and click
+New rule
+.
+Enter the rule name.
+Add
+Conditions
+.
+Under
+On tickets with these properties
+, choose the condition from the drop-down based on your requirements.
+Specify if you want to match All the conditions or any one condition added. Based on this, And/Or operators will be automatically selected.
+Specify
+Actions
+.
+Under
+Perform these actions
+, choose the relevant actions based on your condition. To add multiple actions, click
+Add new action
+.
+For example, if you’ve been waiting for a long time for a customer or third-party vendor to reply, you can create a rule to send reminders to them automatically.
+Once you finish adding conditions and actions, click
+Preview and Save
+.
+A summary will be auto-generated that gives a brief description of the rule.
+Click
+Save and Enable
+to enable and run the rule.
+Viewing automation rule statistics
+To evaluate the effectiveness of automation rules, you can check the following statistics against each rule:
+View the number of tickets impacted by the rule in the last 7 days
+The last modification date of the rule
+The agent who made the last update
+Cloning rules
+If you want to reuse an existing rule but modify a few conditions or actions, you can avoid creating a rule from scratch and instead clone an existing rule.
+To clone a rule:
+Hover over an existing rule, click on the three dots next to the rule name, and select
+Clone
+.
+Make the required changes and save the rule.
+Reordering Rules
+If more than one rule is activated, you can use the
+Reorder
+option to reorder the rules.
+Click
+Reorder
+.
+Select the rule you want to reorder.
+Place the rule in the right position.
+Finally, click
+Done
+.
+Tips and Best Practices
+Ensure rules with time-based conditions run only once
+For automation rules with time-based conditions (hours since), define the time frame clearly to ensure they are valid only once for a ticket. If not, the rule will execute every consecutive hour. For example, If you want to send an email to a customer 24 hours after the ticket is Resolved, set the conditions as follows:
+In tickets > If Status > is > Resolved.
+In tickets > If Hours since resolved > greater than > 24
+In tickets > If Hours since resolved > less than > 25
+If the rules are not defined accurately, there's a significant chance that they may not work as intended.
+Specify the time frame in hours
+When you specify the time constraint, specify whole hours and not minutes. For time constraints concerning days, you can use the hours equivalent to the number of days instead.

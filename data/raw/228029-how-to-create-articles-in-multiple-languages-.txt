@@ -1,0 +1,12 @@
+You would be having customers all around the world and our helpdesk does support a global reach to customers in their respective languages. The feature that aids this is called
+"Multilingual Support"
+which is available from our
+Garden
+plan.
+Say, for example, you would want to support articles in Chinese, French, apart from English which is your default/primary portal language. Please navigate to
+Admin -> Account -> Helpdesk Settings
+where you would see an option called
+"Manage Languages"
+which would allow you to add Chinese and French as well. Next, to these languages, you would have an option called
+"Hidden on portal"
+which when clicked upon would make the language visible on the portal.

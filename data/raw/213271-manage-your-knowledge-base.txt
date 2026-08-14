@@ -1,0 +1,198 @@
+TABLE OF CONTENTS
+Access quick views
+Manage categories and folders
+Two-pane view
+Move folders and articles
+Manage articles
+Change the article visibility
+Reorder articles
+Access article list view
+Perform bulk actions
+Delete category, folder, and article
+Delete an article
+Delete a folder
+Delete a category
+Freshdesk allows you to easily manage your categories, folders, and articles, and effectively streamline the content management process.
+Before you begin
+:
+For a general overview of Freshdesk Knowledge Base, see
+About Knowledge Base
+.
+For instructions on creating categories, folders, and articles, see
+Create and Organize Knowledge Base
+.
+User Requirements
+: The solution page can be accessed by Admins and users.
+Access quick views
+Quick view allows you to access a specific collection of your knowledge base, with a single click. The collection of content you can access through Quick View also changes based on the product or language that chose.
+From the left pane, click on the
+Solutions
+icon.
+Click on the Hamburger icon on the top left of the page, to open Quick Views window.
+With Quick Views, you can access:
+Product portal
+: Click on the drop-down menu to view the different
+product portals
+configured. All the corresponding options are displayed based on the product portal you select.
+All categories
+: View all the categories, folders, and articles in a two-pane view corresponding to the product and language selected.
+All articles list view
+: Displays the articles available in the chosen product and language.
+All drafts list view
+: View all the articles in draft status under the chosen product and language.
+My drafts list view
+: View only the articles you have created in draft status for a specific product and language.
+Published articles list view
+: View all published articles in the specific language and product.
+In review articles list view
+: Shows all articles in review status.
+Approved articles list view
+: Shows all the articles approved by the reviewers.
+Untranslated and outdated articles list view
+: These views are only displayed when you choose a language other than the primary. You can view the untranslated articles from the primary language and the articles that have not been updated according to the changes made to the primary language.
+Article Feedback
+: View the list of tickets related to solution articles. These are tickets raised after a customer submits feedback about an article.
+Article templates
+: Shows all the article templates created by your team. You can also create new templates from here.
+Unassociated categories
+: All the categories that are not associated with a specific product.
+Here's a quick video of everything you can accomplish:
+Manage categories and folders
+To Manage the categories and folders, click on the Solutions icon from the left pane.
+Two-pane view
+You will see an easy-to-use two-pane view that provides a focused workspace and lets you effortlessly manage the content.
+The two-pane view enables you to perform bulk actions such as moving articles/folders, reordering articles, and changing the visibility of multiple articles.
+Move folders and articles
+Select the folders or articles you want to move.
+Click
+Move To
+in the top left corner.
+Choose the destination category or folder where you want to move the folder or articles. The folders/articles will be moved to the new destination.
+Note
+: While moving an article to a different category, ensure that the destination category contains at least one folder associated with it.
+Manage articles
+Perform bulk actions like changing the author of articles, exporting, rendering, and more.
+Change the article visibility
+Select the articles within a specific folder for which you want to bulk-update the visibility.
+Click Visible To and set the visibility based on your requirements. You can also set the visibility based on specific customer/company segments.
+Reorder articles
+Hover over the folder which you want to reorder and click on the edit icon.
+Click Order articles and choose how you want to order articles. You can order them manually or automatically by alphabetical order, creation date, or modified date.
+Note
+: Manual reordering is available from the
+Freshdesk Free program
+, while Automatic reordering is available from the Growth plan.
+Access article list view
+The article list views allow you to access a specific list of articles, for example, articles in draft or published articles. The views allow you to effectively manage articles and perform bulk actions, like changing the author, applying tags, and more.
+Access and customize the article list view
+Click on the Hamburger menu in the top left corner and select the desired article list - All drafts, My drafts, and Published articles.
+You will see the corresponding articles from the selected view.
+To customize the list view and display columns according to your preference, click on the gear icon at the top right and choose the columns to display.
+Click
+Update
+. To undo the changes, click
+Reset
+.
+Use filters
+You can further narrow down your article view by using the various filters available. For example, you can filter and view all the articles updated during a particular time frame using the date filters or view articles created by a particular author.
+The different filter options are:
+Author
+Article status
+Category
+Folder
+Tags
+Created at
+Last modified at
+To filter the articles, enter the values for the required filter options and click
+Apply
+.
+Note
+: The filter option is available only from the
+Pro
+plan.
+Perform bulk actions
+The article list view enables you to carry out bulk actions on articles, including updating article properties, changing the author, and more. Bulk actions allow you to efficiently complete time-consuming tasks, thus boosting productivity and saving time.
+Bulk actions can be performed from the Pro plan and the approval workflow is available only on the Enterprise plan.
+Bulk actions you can perform on articles are:
+Change author
+Add/update tags
+Export articles
+Send articles for review and approval
+Change author
+The author property of a solution article is mandatory. As an admin, you may want to change the author for the following reasons:
+The author has left the company
+The responsibility of maintaining articles is shared between multiple people on your team.
+The agent is deleted.
+You can change the author of a single article directly within the article editor or perform bulk action to change the author of multiple articles in a single click.
+To bulk-update the author of articles:
+Click on the hamburger icon on the top-left and select the required article list.
+You can further narrow down your search using filters.
+For example, let's say you want to change the author of all articles created by an agent who is deactivated or deleted. To do this, in the
+Author
+dropdown, choose "Deleted Agent" and click
+Apply
+.
+Select the articles for which you want to change the author.
+Click on the
+Change Author
+option at the top, type or select the agent or author name, and click
+Save
+.
+Note
+: Similarly, you can perform bulk actions to send articles for
+review and approval
+or publish articles. When you select articles to perform bulk actions, you will see the corresponding buttons at the top.
+Add/update tags
+Similarly to update tags for a set of articles:
+Select the articles from the desired article list view and click
+Add tags
+.
+Enter the tag name you want to update in all articles or create a new tag.
+Click
+Save
+.
+Export articles
+Export articles to quickly view all the properties of your articles in a single click.
+Go to the relevant article list view from the Quick view.
+Use the filter option to further narrow down your requirements. For example, you can export articles from a specific category by choosing the category under the filters. Click
+Apply
+to view the filtered results.
+Click
+Export
+.
+Choose the column you want to export and click
+Export
+.
+Once the export is done, you will receive an email with the .CSV file that you can download.
+Note
+:
+Only agents who have export access (available under the Solutions section while editing or creating a role within Admin > Team > Roles) can export articles.
+You can only export the list of articles and its properties using the export oprion. To export the content of the solution article, you need to
+export your helpdesk data and access the Solutions XML file.
+Delete category, folder, and article
+Note
+: The delete action is irreversible and cannot be restored. Hence, double-check before you delete them.
+Delete an article
+Click on the article you want to delete to open the article editor.
+Click on the delete icon at the top-left corner.
+On the pop-up window, enter the article title again to confirm the deletion.
+Delete a folder
+Go to the
+Solutions
+tab and click
+Manage
+.
+Hover over the required folder and click on the
+Edit Folder
+icon.
+Click on the
+Delete
+icon.
+Enter the folder name again to confirm the deletion.
+Delete a category
+Navigate to the Solutions tab and click
+Manage
+.
+Hover over the required category and click on the Edit category icon.
+Click on the Delete icon.
+Enter the category name again to confirm the deletion.
