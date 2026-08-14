@@ -1,4 +1,11 @@
 import os
+os.environ.setdefault("HF_HUB_DISABLE_SYMLINKS_WARNING", "1")
+os.environ.setdefault("TRANSFORMERS_VERBOSITY", "error")
+os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
+
+import logging
+logging.getLogger("huggingface_hub").setLevel(logging.ERROR)
+
 from dotenv import load_dotenv
 
 load_dotenv()
