@@ -19,3 +19,13 @@ def test_query_valid_question():
 def test_query_missing_question_field():
     response = client.post("/query", json={})
     assert response.status_code == 422
+
+def test_query_empty_string_question():
+    response = client.post("/query", json={"question": ""})
+    assert response.status_code == 422
+
+def test_query_whitespace_only_question():
+    response = client.post("/query", json={"question": "   "})
+    assert response.status_code == 200
+    data = response.json()
+    assert data["answer"] == "Please provide an actual question."
