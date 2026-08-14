@@ -1,12 +1,8 @@
 from sentence_transformers import SentenceTransformer
 import chromadb
+from config import CHROMA_DIR, COLLECTION_NAME, EMBEDDING_MODEL, TOP_K, MAX_DISTANCE
 
-CHROMA_DIR = "chroma_db"
-COLLECTION_NAME = "freshdesk_docs"
-TOP_K = 3
-MAX_DISTANCE = 1.0
-
-model = SentenceTransformer("all-MiniLM-L6-v2")
+model = SentenceTransformer(EMBEDDING_MODEL)
 client = chromadb.PersistentClient(path=CHROMA_DIR)
 collection = client.get_collection(name=COLLECTION_NAME)
 
@@ -32,8 +28,6 @@ def retrieve(query, top_k=TOP_K, max_distance=MAX_DISTANCE):
             })
     return chunks
 
-# Quick manual test loop - shows ALL results (even filtered-out ones) so
-# you can see the distance numbers and calibrate MAX_DISTANCE correctly
 if __name__ == "__main__":
     while True:
         query = input("\nAsk a question (or 'quit'): ")

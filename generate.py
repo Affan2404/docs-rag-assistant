@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from anthropic import Anthropic
 from retrieve import retrieve
+from config import CLAUDE_MODEL, MAX_TOKENS, TOP_K
 
 load_dotenv()
 client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
@@ -25,9 +26,7 @@ def build_context(chunks):
         parts.append(f"[Source: {c['source_file']}]\n{c['text']}")
     return "\n\n---\n\n".join(parts)
 
-# Skip the Claude call entirely when nothing relevant was found - saves cost
-# and guarantees an honest answer instead of relying on the model to notice
-def answer_question(query, top_k=3):
+def answer_question(query, top_k=TOP_K):
     chunks = retrieve(query, top_k=top_k)
 
     if not chunks:
@@ -37,8 +36,8 @@ def answer_question(query, top_k=3):
     user_message = f"Context:\n{context}\n\nQuestion: {query}"
 
     response = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=500,
+        model=CLAUDE_MODEL,
+        max_tokens=MAX_TOKENS,
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": user_message}]
     )

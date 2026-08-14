@@ -1,18 +1,15 @@
 import json
 from sentence_transformers import SentenceTransformer
 import chromadb
+from config import CHROMA_DIR, COLLECTION_NAME, EMBEDDING_MODEL
 
 CHUNKS_FILE = "data/processed/chunks.json"
-CHROMA_DIR = "chroma_db"
-COLLECTION_NAME = "freshdesk_docs"
 
-# Load the local embedding model - runs on your machine, no API calls, no cost
-model = SentenceTransformer("all-MiniLM-L6-v2")
+model = SentenceTransformer(EMBEDDING_MODEL)
 
 with open(CHUNKS_FILE, encoding="utf-8") as f:
     chunks = json.load(f)
 
-# Persistent client writes to disk, so the database survives across runs
 client = chromadb.PersistentClient(path=CHROMA_DIR)
 collection = client.get_or_create_collection(name=COLLECTION_NAME)
 
