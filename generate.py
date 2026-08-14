@@ -1,8 +1,9 @@
-import os
+import os, time
 from dotenv import load_dotenv
 from anthropic import Anthropic
 from retrieve import retrieve
 from config import CLAUDE_MODEL, MAX_TOKENS, TOP_K
+from logger import logger
 
 load_dotenv()
 client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
@@ -27,9 +28,12 @@ def build_context(chunks):
     return "\n\n---\n\n".join(parts)
 
 def answer_question(query, top_k=TOP_K):
+    start_time = time.time()
     chunks = retrieve(query, top_k=top_k)
 
     if not chunks:
+        elapsed = time.time() - start_time
+        logger.info(f"query='{query}' | chunks_found=0 | tokens=0 | latency={elapsed:.2f}s | grounded=False")
         return NO_CONTEXT_MESSAGE, chunks
 
     context = build_context(chunks)
@@ -41,6 +45,10 @@ def answer_question(query, top_k=TOP_K):
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": user_message}]
     )
+
+    elapsed = time.time() - start_time
+    total_tokens = response.usage.input_tokens + response.usage.output_tokens
+    logger.info(f"query='{query}' | chunks_found={len(chunks)} | tokens={total_tokens} | latency={elapsed:.2f}s | grounded=True")
 
     return response.content[0].text, chunks
 

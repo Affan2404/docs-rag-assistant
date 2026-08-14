@@ -6,3 +6,4 @@ chroma_db/
 *.log
 data/raw/
 data/processed/
+app.log
