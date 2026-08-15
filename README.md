@@ -122,23 +122,25 @@ article data and runs the full test suite via GitHub Actions
 
 ## Project Structure
 
+```
 docs-rag-assistant/
-├── scrape.py # Downloads Freshdesk articles
-├── chunk.py # Splits articles into chunks
-├── embed.py # Embeds chunks into ChromaDB
-├── retrieve.py # Finds relevant chunks for a query
-├── generate.py # Calls Claude with retrieved context
-├── api.py # FastAPI backend
-├── streamlit_app.py # Chat UI
-├── config.py # Centralized tunable settings
-├── logger.py # Structured logging setup
-├── cache.py # Query + embedding caching
-├── eval_retrieval.py # Retrieval accuracy evaluation
+├── scrape.py              # Downloads Freshdesk articles
+├── chunk.py                # Splits articles into chunks
+├── embed.py                 # Embeds chunks into ChromaDB
+├── retrieve.py               # Finds relevant chunks for a query
+├── generate.py                # Calls Claude with retrieved context
+├── api.py                      # FastAPI backend
+├── streamlit_app.py             # Chat UI
+├── config.py                     # Centralized tunable settings
+├── logger.py                      # Structured logging setup
+├── cache.py                        # Query + embedding caching
+├── eval_retrieval.py                # Retrieval accuracy evaluation
 ├── data/
-│ ├── raw/ # Scraped article text
-│ ├── eval_set.json # Retrieval eval questions
-│ └── processed/ # Generated (gitignored)
-├── tests/ # pytest suite
+│   ├── raw/                          # Scraped article text
+│   ├── eval_set.json                  # Retrieval eval questions
+│   └── processed/                      # Generated (gitignored)
+├── tests/                               # pytest suite
 ├── Dockerfile
 ├── docker-compose.yml
 └── .github/workflows/tests.yml
+```
